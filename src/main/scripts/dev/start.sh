@@ -1,7 +1,7 @@
 #!/bin/sh
 #变量设置
 SERVICE_NAME=xxl-job-admin
-SERVER_PORT=10032
+SERVER_PORT=8900
 while getopts "p:" opt
 do
     case $opt in
@@ -18,9 +18,9 @@ PROJECT_DIR=$PROJECT_DIR/..
 CONFIG_DIR=$PROJECT_DIR/config
 LIB_DIR=$PROJECT_DIR/lib
 LIB_JARS=`ls $LIB_DIR | grep .jar | awk '{print "'$LIB_DIR'/"$0}' | tr "\n" ":"`
-mkdir -p /logs/$SERVICE_NAME/
+mkdir -p /data/logs/$SERVICE_NAME/
 MAIN_CLASS="com.xxl.job.admin.XxlJobAdminApplication"
-JAVE_HOME=/usr/local/java/current
+JAVE_HOME=/usr/local/java
 LOG_PATH=$PROJECT_DIR/../logs
 STD_OUT_PATH_LOG=$PROJECT_DIR/../start_std_out.log
 
